@@ -36,6 +36,62 @@ let scale = 1;
 introImg.addEventListener('wheel', zoom);
 
 
+//Load
+window.addEventListener('load', () => {
+    console.log("Welcome to the Fun Bus!");
+})
+
+
+//Resize
+const imgContent = document.querySelector('.img-content img')
+// console.log(imgContent);
+
+
+
+window.addEventListener('resize', (imgContent) =>  {
+    imgContent.textContent = window.innerWidth
+})
+
+
+
+window.addEventListener('resize', imgContent)
+
+
+// Scroll
+//Clicking on the footer will bring you back to the top of the page
+const footer = document.querySelector('.footer');
+console.log(footer);
+
+footer.onclick = function() {
+    window.scrollTo(pageXOffset, 0);
+    // after scrollTo, there will be a "scroll" event, so the arrow will hide automatically
+  };
+
+  window.addEventListener('scroll', function() {
+    footer.hidden = (pageYOffset < document.documentElement.clientHeight);
+  });
+
+
+  //Select
+
+    function pSelection(e) {
+    const log = document.querySelector('.destination');
+    const selection = e.target.value.substring(e.target.selectionStart, e.target.selectionEnd);
+    log.textContent = `You selected: ${selection}`;
+  }
+  
+   const desH4 = document.querySelector('.destination h4');
+  console.log(desH4);
+ desH4.addEventListener('select', pSelection);
+
+ //Dblclick
+
+ const signUp = document.querySelectorAll('.btn');
+console.log(signUp);
+// signUp.addEventListener('dblclick', function () {
+//   signUp.style.color = "red";
+//   console.log('Sign Up Here');
+// });
 
 
 
