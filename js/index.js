@@ -6,8 +6,8 @@ const nav = document.querySelector('.nav')
 
 nav.addEventListener('mouseover', function(e){
     e.target.style.color = "blue";
-
-
+    e.preventDefault();
+    e.stopPropagation();
     setTimeout(function(){
         e.target.style.color = "";
 
@@ -22,6 +22,7 @@ const introImg = document.querySelector('.intro img');
 
 function zoom(event) {
     event.preventDefault();
+    event.stopPropagation();
   
     scale += event.deltaY * -0.01;
   
@@ -79,6 +80,7 @@ footer.onclick = function() {
     desH4.addEventListener('select', e =>{
       const selection = e.target.value.substring(e.target.selectionStart, e.target.selectionEnd);
       desH4.textContent = `You Selected: ${selection} `
+      e.stopPropagation();
     });
 
   })
@@ -93,6 +95,7 @@ signUp.forEach(signUp => {
     signUp.addEventListener('dblclick', e => {
 
       e.target.style.color = "red";
+      e.stopPropagation();
     })
 
 })
@@ -104,11 +107,13 @@ signUp.forEach(signUp => {
 const logoHeading = document.querySelector('.logo-heading');
 
 logoHeading.addEventListener('focus', (e) => {
-  e.target.style.color = 'pink';    
+  e.target.style.color = 'pink';   
+  e.stopPropagation() 
 }, true);
 
 logoHeading.addEventListener('blur', (e) => {
   e.target.style.color = '';
+  e.stopPropagation()
 }, true);
 
 //click 
@@ -120,6 +125,7 @@ const button = document.querySelectorAll('.btn');
 button.forEach( button => {
   button.addEventListener('click', e => {
     button.innerHTML = ` Sign up count: ${e.detail}`
+    e.stopPropagation();
   })
 })
 
