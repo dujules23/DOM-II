@@ -1,6 +1,6 @@
 // Your code goes here
 
-//Nav mouseover to blue
+//Mouseover - changes the color of nav items to blue
 const nav = document.querySelector('.nav')
 // console.log(nav);
 
@@ -36,7 +36,7 @@ let scale = 1;
 introImg.addEventListener('wheel', zoom);
 
 
-//Load
+//Load - Loads Message 
 window.addEventListener('load', () => {
     console.log("Welcome to the Fun Bus!");
 })
@@ -46,13 +46,9 @@ window.addEventListener('load', () => {
 const imgContent = document.querySelector('.img-content img')
 // console.log(imgContent);
 
-
-
 window.addEventListener('resize', (imgContent) =>  {
     imgContent.textContent = window.innerWidth
 })
-
-
 
 window.addEventListener('resize', imgContent)
 
@@ -73,26 +69,58 @@ footer.onclick = function() {
 
 
   //Select
+  // Can only be used on <input type = "text"> or <textarea>
 
-    function pSelection(e) {
-    const log = document.querySelector('.destination');
-    const selection = e.target.value.substring(e.target.selectionStart, e.target.selectionEnd);
-    log.textContent = `You selected: ${selection}`;
-  }
   
-   const desH4 = document.querySelector('.destination h4');
-  console.log(desH4);
- desH4.addEventListener('select', pSelection);
+  const desH4 = document.querySelectorAll('.destination h4');
+  // console.log(desH4);
 
- //Dblclick
+  desH4.forEach( desH4 => {
+    desH4.addEventListener('select', e =>{
+      const selection = e.target.value.substring(e.target.selectionStart, e.target.selectionEnd);
+      desH4.textContent = `You Selected: ${selection} `
+    });
 
- const signUp = document.querySelectorAll('.btn');
-console.log(signUp);
-// signUp.addEventListener('dblclick', function () {
-//   signUp.style.color = "red";
-//   console.log('Sign Up Here');
-// });
+  })
+ 
+
+//Dblclick
+
+const signUp = document.querySelectorAll('.btn');
+// console.log(signUp);
+
+signUp.forEach(signUp => {
+    signUp.addEventListener('dblclick', e => {
+
+      e.target.style.color = "red";
+    })
+
+})
+  
 
 
+//focus and blur
+
+const logoHeading = document.querySelector('.logo-heading');
+
+logoHeading.addEventListener('focus', (e) => {
+  e.target.style.color = 'pink';    
+}, true);
+
+logoHeading.addEventListener('blur', (e) => {
+  e.target.style.color = '';
+}, true);
+
+//click 
+//When you click sign up, It will show a message " Sign Up Count : Number"
+
+const button = document.querySelectorAll('.btn');
+// console.log(button);
+
+button.forEach( button => {
+  button.addEventListener('click', e => {
+    button.innerHTML = ` Sign up count: ${e.detail}`
+  })
+})
 
 
